@@ -4,7 +4,7 @@ import classNames from "classnames";
 export const Playlist = () => {
   return (
     <div
-      className={classNames(styles.centerblockContent, styles.playlistContent)}
+      className={styles.centerblockContent}
     >
       <div className={styles.contentTitle}>
         <div className={classNames(styles.playlistTitle__col, styles.col01)}>

@@ -35,7 +35,7 @@ body {
   color: #ffffff;
 }
 
-.wrapper {
+/* .wrapper {
   width: 100%;
   min-height: 100%;
   overflow: hidden;
@@ -48,38 +48,38 @@ body {
   margin: 0 auto;
   position: relative;
   background-color: #181818;
-}
+} */
 
-._btn-text:hover {
+/* ._btn-text:hover {
   border-color: #d9b6ff;
   color: #d9b6ff;
   cursor: pointer;
-}
+} */
 
-._btn-icon:hover svg {
+/* ._btn-icon:hover svg {
   fill: transparent;
   stroke: #acacac;
   cursor: pointer;
-}
+} */
 
-._btn-text:active {
+/* ._btn-text:active {
   border-color: #ad61ff;
   color: #ad61ff;
   cursor: pointer;
-}
+} */
 
-._btn-icon:active svg {
+/* ._btn-icon:active svg {
   fill: transparent;
   stroke: #ffffff;
   cursor: pointer;
-}
+} */
 
-._btn-icon:active .track-play__like-svg,
+/* ._btn-icon:active .track-play__like-svg,
 ._btn-icon:active .track-play__dislike-svg {
   fill: #696969;
   stroke: #ffffff;
   cursor: pointer;
-}
+} */
 
 .main {
   -webkit-box-flex: 1;
@@ -109,10 +109,10 @@ body {
   padding: 20px 40px 20px 111px;
 } */
 
-.main__sidebar {
+/* .main__sidebar {
   max-width: 418px;
   padding: 20px 90px 20px 78px;
-}
+} */
 
 /* .nav__logo {
   width: 113.33px;
@@ -306,7 +306,7 @@ body {
 
 
 
-.sidebar__personal {
+/* .sidebar__personal {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -385,9 +385,9 @@ body {
 .sidebar__img {
   width: 100%;
   height: auto;
-}
+} */
 
-.bar {
+/* .bar {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -450,9 +450,9 @@ body {
   -ms-flex-align: center;
   align-items: center;
   padding: 0 92px 0 0;
-}
+} */
 
-.player__controls {
+/* .player__controls {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -461,9 +461,9 @@ body {
   -ms-flex-direction: row;
   flex-direction: row;
   padding: 0 27px 0 31px;
-}
+} */
 
-.player__btn-prev,
+/* .player__btn-prev,
 .player__btn-play,
 .player__btn-next,
 .player__btn-repeat,
@@ -475,9 +475,9 @@ body {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-}
+} */
 
-.player__btn-prev {
+/* .player__btn-prev {
   margin-right: 23px;
 }
 
@@ -686,4 +686,4 @@ body {
 
 .volume__progress-line {
   width: 109px;
-}
+} */
