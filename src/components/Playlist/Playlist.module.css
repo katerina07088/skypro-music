@@ -7,7 +7,8 @@
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
-    //width: 773px;
+    //width: auto;
+    width: 960px;
   }
   
 
@@ -195,4 +196,11 @@
     line-height: 24px;
     text-align: right;
     color: #696969;
+  }
+  .trackTitleText{
+
+  }
+  .trackTime{
+   display:flex;
+   align-items: center;
   }

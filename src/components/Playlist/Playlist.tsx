@@ -3,9 +3,7 @@ import classNames from "classnames";
 
 export const Playlist = () => {
   return (
-    <div
-      className={styles.centerblockContent}
-    >
+    <div className={styles.centerblockContent}>
       <div className={styles.contentTitle}>
         <div className={classNames(styles.playlistTitle__col, styles.col01)}>
           Трек
@@ -31,7 +29,7 @@ export const Playlist = () => {
                   <use xlinkHref="/img/icon/sprite.svg#icon-note"></use>
                 </svg>
               </div>
-              <div className="track__title-text">
+              <div className={styles.trackTitleText}>
                 <a className={styles.trackTitleLink} href="http://">
                   Guilt <span className={styles.trackTitleSpan}></span>
                 </a>
@@ -47,7 +45,7 @@ export const Playlist = () => {
                 Welcome Reality
               </a>
             </div>
-            <div className="track__time">
+            <div className={styles.trackTime}>
               <svg className={styles.trackTimeSvg}>
                 <use xlinkHref="/img/icon/sprite.svg#icon-like"></use>
               </svg>
@@ -64,7 +62,7 @@ export const Playlist = () => {
                   <use xlinkHref="/img/icon/sprite.svg#icon-note"></use>
                 </svg>
               </div>
-              <div className="track__title-text">
+              <div className={styles.trackTitleText}>
                 <a className={styles.trackTitleLink} href="http://">
                   Elektro <span className={styles.trackTitleSpan}></span>
                 </a>
@@ -80,7 +78,7 @@ export const Playlist = () => {
                 Elektro
               </a>
             </div>
-            <div className="track__time">
+            <div className={styles.trackTime}>
               <svg className={styles.trackTimeSvg}>
                 <use xlinkHref="/img/icon/sprite.svg#icon-like"></use>
               </svg>
@@ -97,7 +95,7 @@ export const Playlist = () => {
                   <use xlinkHref="/img/icon/sprite.svg#icon-note"></use>
                 </svg>
               </div>
-              <div className="track__title-text">
+              <div className={styles.trackTitleText}>
                 <a className={styles.trackTitleLink} href="http://">
                   I’m Fire <span className={styles.trackTitleSpan}></span>
                 </a>
@@ -113,7 +111,7 @@ export const Playlist = () => {
                 I’m Fire
               </a>
             </div>
-            <div className="track__time">
+            <div className={styles.trackTime}>
               <svg className={styles.trackTimeSvg}>
                 <use xlinkHref="/img/icon/sprite.svg#icon-like"></use>
               </svg>
@@ -130,9 +128,9 @@ export const Playlist = () => {
                   <use xlinkHref="/img/icon/sprite.svg#icon-note"></use>
                 </svg>
               </div>
-              <div className="track__title-text">
+              <div className={styles.trackTitleText}>
                 <a className={styles.trackTitleLink} href="http://">
-                  Non Stop
+                  Non Stop{styles.trackTitleText}
                   <span className={styles.trackTitleSpan}>(Remix)</span>
                 </a>
               </div>
@@ -147,7 +145,7 @@ export const Playlist = () => {
                 Non Stop
               </a>
             </div>
-            <div className="track__time">
+            <div className={styles.trackTime}>
               <svg className={styles.trackTimeSvg}>
                 <use xlinkHref="/img/icon/sprite.svg#icon-like"></use>
               </svg>
@@ -164,7 +162,7 @@ export const Playlist = () => {
                   <use xlinkHref="/img/icon/sprite.svg#icon-note"></use>
                 </svg>
               </div>
-              <div className="track__title-text">
+              <div className={styles.trackTitleText}>
                 <a className={styles.trackTitleLink} href="http://">
                   Run Run
                   <span className={styles.trackTitleSpan}>(feat. AR/CO)</span>
@@ -181,7 +179,7 @@ export const Playlist = () => {
                 Run Run
               </a>
             </div>
-            <div className="track__time">
+            <div className={styles.trackTime}>
               <svg className={styles.trackTimeSvg}>
                 <use xlinkHref="/img/icon/sprite.svg#icon-like"></use>
               </svg>
@@ -198,7 +196,7 @@ export const Playlist = () => {
                   <use xlinkHref="/img/icon/sprite.svg#icon-note"></use>
                 </svg>
               </div>
-              <div className="track__title-text">
+              <div className={styles.trackTitleText}>
                 <a className={styles.trackTitleLink} href="http://">
                   Eyes on Fire
                   <span className={styles.trackTitleSpan}>
@@ -217,7 +215,7 @@ export const Playlist = () => {
                 Eyes on Fire
               </a>
             </div>
-            <div className="track__time">
+            <div className={styles.trackTime}>
               <svg className={styles.trackTimeSvg}>
                 <use xlinkHref="/img/icon/sprite.svg#icon-like"></use>
               </svg>
@@ -234,7 +232,7 @@ export const Playlist = () => {
                   <use xlinkHref="img//icon/sprite.svg#icon-note"></use>
                 </svg>
               </div>
-              <div className="track__title-text">
+              <div className={styles.trackTitleText}>
                 <a className={styles.trackTitleLink} href="http://">
                   Mucho Bien
                   <span className={styles.trackTitleSpan}>
@@ -253,7 +251,7 @@ export const Playlist = () => {
                 Mucho Bien
               </a>
             </div>
-            <div className="track__time">
+            <div className={styles.trackTime}>
               <svg className={styles.trackTimeSvg}>
                 <use xlinkHref="/img/icon/sprite.svg#icon-like"></use>
               </svg>
@@ -270,7 +268,7 @@ export const Playlist = () => {
                   <use xlinkHref="/img/icon/sprite.svg#icon-note"></use>
                 </svg>
               </div>
-              <div className="track__title-text">
+              <div className={styles.trackTitleText}>
                 <a className={styles.trackTitleLink} href="http://">
                   Knives n Cherries
                   <span className={styles.trackTitleSpan}></span>
@@ -287,7 +285,7 @@ export const Playlist = () => {
                 Captivating
               </a>
             </div>
-            <div className="track__time">
+            <div className={styles.trackTime}>
               <svg className={styles.trackTimeSvg}>
                 <use xlinkHref="/img/icon/sprite.svg#icon-like"></use>
               </svg>
@@ -304,7 +302,7 @@ export const Playlist = () => {
                   <use xlinkHref="/img/icon/sprite.svg#icon-note"></use>
                 </svg>
               </div>
-              <div className="track__title-text">
+              <div className={styles.trackTitleText}>
                 <a className={styles.trackTitleLink} href="http://">
                   Knives n Cherries
                   <span className={styles.trackTitleSpan}></span>
@@ -321,7 +319,7 @@ export const Playlist = () => {
                 Captivating
               </a>
             </div>
-            <div className="track__time">
+            <div className={styles.trackTime}>
               <svg className={styles.trackTimeSvg}>
                 <use xlinkHref="/img/icon/sprite.svg#icon-like"></use>
               </svg>
@@ -337,7 +335,7 @@ export const Playlist = () => {
                   <use xlinkHref="/img/icon/sprite.svg#icon-note"></use>
                 </svg>
               </div>
-              <div className="track__title-text">
+              <div className={styles.trackTitleText}>
                 <a className={styles.trackTitleLink} href="http://">
                   Knives n Cherries
                   <span className={styles.trackTitleSpan}></span>
@@ -354,7 +352,7 @@ export const Playlist = () => {
                 Captivating
               </a>
             </div>
-            <div className="track__time">
+            <div className={styles.trackTime}>
               <svg className={styles.trackTimeSvg}>
                 <use xlinkHref="/img/icon/sprite.svg#icon-like"></use>
               </svg>
@@ -370,7 +368,7 @@ export const Playlist = () => {
                   <use xlinkHref="/img/icon/sprite.svg#icon-note"></use>
                 </svg>
               </div>
-              <div className="track__title-text">
+              <div className={styles.trackTitleText}>
                 <a className={styles.trackTitleLink} href="http://">
                   Knives n Cherries
                   <span className={styles.trackTitleSpan}></span>
@@ -387,7 +385,7 @@ export const Playlist = () => {
                 Captivating
               </a>
             </div>
-            <div className="track__time">
+            <div className={styles.trackTime}>
               <svg className={styles.trackTimeSvg}>
                 <use xlinkHref="/img/icon/sprite.svg#icon-like"></use>
               </svg>
@@ -403,7 +401,7 @@ export const Playlist = () => {
                   <use xlinkHref="/img/icon/sprite.svg#icon-note"></use>
                 </svg>
               </div>
-              <div className="track__title-text">
+              <div className={styles.trackTitleText}>
                 <a className={styles.trackTitleLink} href="http://">
                   Knives n Cherries
                   <span className={styles.trackTitleSpan}></span>
@@ -420,7 +418,7 @@ export const Playlist = () => {
                 Captivating
               </a>
             </div>
-            <div className="track__time">
+            <div className={styles.trackTime}>
               <svg className={styles.trackTimeSvg}>
                 <use xlinkHref="/img/icon/sprite.svg#icon-like"></use>
               </svg>
@@ -436,7 +434,7 @@ export const Playlist = () => {
                   <use xlinkHref="/img/icon/sprite.svg#icon-note"></use>
                 </svg>
               </div>
-              <div className="track__title-text">
+              <div className={styles.trackTitleText}>
                 <a className={styles.trackTitleLink} href="http://">
                   Knives n Cherries
                   <span className={styles.trackTitleSpan}></span>
@@ -453,7 +451,7 @@ export const Playlist = () => {
                 Captivating
               </a>
             </div>
-            <div className="track__time">
+            <div className={styles.trackTime}>
               <svg className={styles.trackTimeSvg}>
                 <use xlinkHref="/img/icon/sprite.svg#icon-like"></use>
               </svg>
@@ -469,7 +467,7 @@ export const Playlist = () => {
                   <use xlinkHref="/img/icon/sprite.svg#icon-note"></use>
                 </svg>
               </div>
-              <div className="track__title-text">
+              <div className={styles.trackTitleText}>
                 <a className={styles.trackTitleLink} href="http://">
                   Knives n Cherries
                   <span className={styles.trackTitleSpan}></span>
@@ -486,7 +484,7 @@ export const Playlist = () => {
                 Captivating
               </a>
             </div>
-            <div className="track__time">
+            <div className={styles.trackTime}>
               <svg className={styles.trackTimeSvg}>
                 <use xlinkHref="/img/icon/sprite.svg#icon-like"></use>
               </svg>
@@ -503,7 +501,7 @@ export const Playlist = () => {
                   <use xlinkHref="/img/icon/sprite.svg#icon-note"></use>
                 </svg>
               </div>
-              <div className="track__title-text">
+              <div className={styles.trackTitleText}>
                 <a className={styles.trackTitleLink} href="http://">
                   How Deep Is Your Love
                   <span className={styles.trackTitleSpan}></span>
@@ -520,7 +518,7 @@ export const Playlist = () => {
                 How Deep Is Your Love
               </a>
             </div>
-            <div className="track__time">
+            <div className={styles.trackTime}>
               <svg className={styles.trackTimeSvg}>
                 <use xlinkHref="/img/icon/sprite.svg#icon-like"></use>
               </svg>
@@ -537,7 +535,7 @@ export const Playlist = () => {
                   <use xlinkHref="/img/icon/sprite.svg#icon-note"></use>
                 </svg>
               </div>
-              <div className="track__title-text">
+              <div className={styles.trackTitleText}>
                 <a className={styles.trackTitleLink} href="http://">
                   Morena <span className={styles.trackTitleSpan}></span>
                 </a>
@@ -553,7 +551,7 @@ export const Playlist = () => {
                 Soundz Made in Romania
               </a>
             </div>
-            <div className="track__time">
+            <div className={styles.trackTime}>
               <svg className={styles.trackTimeSvg}>
                 <use xlinkHref="/img/icon/sprite.svg#icon-like"></use>
               </svg>
@@ -570,7 +568,7 @@ export const Playlist = () => {
                   <use xlinkHref="/img/icon/sprite.svg#icon-note"></use>
                 </svg>
               </div>
-              <div className="track__title-text">
+              <div className={styles.trackTitleText}>
                 <a className={styles.trackTitleLink} href="http://">
                   <span className={styles.trackTitleSpan}></span>
                 </a>
@@ -582,7 +580,7 @@ export const Playlist = () => {
             <div className={styles.trackAlbum}>
               <a className={styles.trackAlbumLink} href="http://"></a>
             </div>
-            <div className="track__time">
+            <div className={styles.trackTime}>
               <svg className={styles.trackTimeSvg}>
                 <use xlinkHref="/img/icon/sprite.svg#icon-like"></use>
               </svg>
