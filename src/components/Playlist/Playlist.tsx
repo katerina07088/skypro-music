@@ -2,6 +2,9 @@ import styles from "./Playlist.module.css";
 import classNames from "classnames";
 
 export const Playlist = () => {
+
+
+  
   return (
     <div className={styles.centerblockContent}>
       <div className={styles.contentTitle}>
@@ -21,7 +24,7 @@ export const Playlist = () => {
         </div>
       </div>
       <div className={styles.contentPlaylist}>
-        <div className={styles.playlistItem}>
+         {/* <div className={styles.playlistItem}> 
           <div className={styles.playlistTrack}>
             <div className={styles.trackTitle}>
               <div className={styles.trackTitleImage}>
@@ -51,10 +54,11 @@ export const Playlist = () => {
               </svg>
               <span className={styles.trackTimeText}>4:44</span>
             </div>
-          </div>
-        </div>
+          </div> 
+        </div>  */}
 
-        <div className={styles.playlistItem}>
+
+        {/* <div className={styles.playlistItem}>
           <div className={styles.playlistTrack}>
             <div className={styles.trackTitle}>
               <div className={styles.trackTitleImage}>
@@ -558,9 +562,9 @@ export const Playlist = () => {
               <span className={styles.trackTimeText}>3:36</span>
             </div>
           </div>
-        </div>
+        </div> */}
 
-        <div className={styles.playlistItem}>
+        {/* <div className={styles.playlistItem}>
           <div className={styles.playlistTrack}>
             <div className={styles.trackTitle}>
               <div className={styles.trackTitleImage}>
@@ -587,7 +591,7 @@ export const Playlist = () => {
               <span className={styles.trackTimeText}></span>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
