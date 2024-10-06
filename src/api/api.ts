@@ -1,7 +1,7 @@
-const apiUrl = 'https://webdev-music-003b5b991590.herokuapp.com/catalog/track/all';
+const apiUrl = "https://webdev-music-003b5b991590.herokuapp.com";
 
 export const getTracks = async () => {
-  const res = await fetch(apiUrl);
+  const res = await fetch(apiUrl + "/catalog/track/all");
   if (!res.ok) {
     throw new Error("Ошибка при получении данных");
   }
@@ -9,7 +9,7 @@ export const getTracks = async () => {
   return tracksData.data;
 };
 
-// const URL = 'https://webdev-music-003b5b991590.herokuapp.com/catalog/track/all';
+// const URL = 'https://webdev-music-003b5b991590.herokuapp.com /catalog/track/all';
 
 // export const getTrack = async () => {
 //   const response = await fetch(URL);

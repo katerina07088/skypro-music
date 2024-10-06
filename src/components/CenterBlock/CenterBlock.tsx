@@ -5,7 +5,8 @@ import { Playlist } from "../Playlist/Playlist";
 import { Search } from "../Search/Search";
 import styles from "./CenterBlock.module.css";
 import { getTracks } from "@/api/api";
-import { Track } from "@/types";
+import { Track } from "@/types/types";
+
 
 export const CenterBlock = () => {
   const [err, setErr] = useState<string | null>(null);
@@ -42,8 +43,9 @@ export const CenterBlock = () => {
     <div className={styles.mainCenterblock}>
       <Search />
       <h2 className={styles.centerblockH2}>Треки</h2>
-      <Filter />
+      <Filter tracks={tracks} />
       <Playlist tracks={tracks} />
+      <p>{err}</p>
     </div>
   );
 };
