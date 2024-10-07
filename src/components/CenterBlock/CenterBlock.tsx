@@ -7,7 +7,6 @@ import styles from "./CenterBlock.module.css";
 import { getTracks } from "@/api/api";
 import { Track } from "@/types/types";
 
-
 export const CenterBlock = () => {
   const [err, setErr] = useState<string | null>(null);
   const [tracks, setTracks] = useState<Track[]>([]);
@@ -26,19 +25,6 @@ export const CenterBlock = () => {
     getData();
   }, [tracks]);
 
-  // const getData = async () => {
-  //   let tracks: Track[] = [];
-  //   let err: string | null = null;
-  //   try {
-  //     tracks = await getTracks();
-  //     //const data = await getTracks();
-  //     //setTracks(data);
-  //   } catch (error: unknown) {
-  //     if (error instanceof Error) {
-  //       err = error.message;
-  //     }
-  //   }
-  // };
   return (
     <div className={styles.mainCenterblock}>
       <Search />

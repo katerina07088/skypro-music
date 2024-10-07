@@ -8,7 +8,6 @@ type FilterProps = {
 };
 export const Filter: React.FC<FilterProps> = ({ tracks }) => {
   const [activeFilter, setActiveFilter] = React.useState<string | null>(null);
-  //const {tracks} = useAppSelector(state=> state.tracksSlice);
 
   const getUniqValues = <T, K extends keyof T>(
     items: T[],
@@ -58,25 +57,13 @@ export const Filter: React.FC<FilterProps> = ({ tracks }) => {
           onClick={() => handleFilter(item.key)}
         >
           {item.title}
-          
-          {activeFilter === item.key  && <DropMenu list={item.list} />}
+
+          {activeFilter === item.key && <DropMenu list={item.list} />}
           {/* {activeFilter === item.key  && <div className={styles.dropMenuActiveRound}>
         <p>{item.list.length}</p>
       </div>} */}
         </div>
       ))}
-
-      {/* {filters.map((item) => (
-        <FilterItem
-          key={item.key}
-          title={item.title}
-          id={item.key}
-          isActive={activeFilter === item.key}
-          handleFilter={() => handleFilter(item.key)}
-          //setActiveFilter={setActiveFilter}
-          list={item.list}
-        />
-      ))} */}
     </div>
   );
 };
