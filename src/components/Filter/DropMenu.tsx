@@ -1,20 +1,19 @@
+import styles from "./Dropmenu.module.css";
+import React from "react";
 
-import { Track } from '@/types/types';
-import styles from './Dropmenu.module.css';
-import React from 'react';
+type DropMenuProps = { list: string[] };
 
-type DropMenuProps = {
-    tracks: Track[];
-  };
-
-const DropMenu: React.FC<DropMenuProps> = ({ tracks }) => {
+const DropMenu: React.FC<DropMenuProps> = ({ list }) => {
   return (
     <div className={styles.dropMenu}>
+      {/* <div className={styles.dropMenuActiveRound}>
+        <p>{list.length}</p>
+      </div> */}
       <div className={styles.dropMenuList}>
-        {tracks.map(track => (
-          <div key={track._id}>
-            <a className={styles.dropMenuText} href='http://'>
-              {track.author}
+        {list.map((item) => (
+          <div key={item}>
+            <a className={styles.dropMenuText} href="http://">
+              {item}
             </a>
           </div>
         ))}

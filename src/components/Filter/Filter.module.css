@@ -28,9 +28,34 @@
     border: 1px solid #ffffff;
     border-radius: 60px;
     padding: 6px 20px;
+    &:hover {
+      border-color: #d9b6ff;
+      color: #d9b6ff;
+      cursor: pointer;
+    }
   }
-  
-  .filterButton:not(:last-child) {
+  .filterActive {
+    width: fit-content;
+    height: 39px;
+    border: 1px solid #b672ff;
+    border-radius: 60px;
+    color: #b672ff;
+    padding: 6px 20px;
+    line-height: 24px;
+  }
+  .filterActiveRound {
+    position: absolute;
+    width: 26px;
+    height: 25.5px;
+    top: -14px;
+    right: -8px;
+    border-radius: 50px;
+    background: #ad61ff;
+    text-align: center;
+    color: #fff;
+  }
+  .filterButton:not(:last-child),
+  .filterActive:not(:last-child) {
     margin-right: 10px;
   }
 
@@ -44,4 +69,15 @@
   border-color: #ad61ff;
   color: #ad61ff;
   cursor: pointer;
+}
+.dropMenuActiveRound {
+  position: absolute;
+  width: 26px;
+  height: 25.5px;
+  top: -14px;
+  right: -8px;
+  border-radius: 50px;
+  background: #ad61ff;
+  text-align: center;
+  color: #fff; 
 }

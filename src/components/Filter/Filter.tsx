@@ -1,15 +1,12 @@
-
 import { Track } from "@/types/types";
 import styles from "./Filter.module.css";
-import classNames from "classnames";
 import React, { useEffect } from "react";
-import { FilterItem } from "../FilterItem/FilterItem";
+import DropMenu from "./DropMenu";
 
 type FilterProps = {
   tracks: Track[];
 };
-export const Filter: React.FC<FilterProps> = ({tracks}) => {
-
+export const Filter: React.FC<FilterProps> = ({ tracks }) => {
   const [activeFilter, setActiveFilter] = React.useState<string | null>(null);
   //const {tracks} = useAppSelector(state=> state.tracksSlice);
 
@@ -42,32 +39,44 @@ export const Filter: React.FC<FilterProps> = ({tracks}) => {
       list: filterOptions,
     },
   ];
+  const handleFilter = (filter: string): void => {
+    setActiveFilter((prev: string | null) => (prev === filter ? null : filter));
+  };
 
-  // const handleMouseEvent = (e: MouseEvent): void => {
-  //   console.log(e.target);
-  // };
-  // const hadleClick = (e: React.MouseEvent<HTMLElement>): void => {
-  //   console.log(e.target);
-  // };
-  // useEffect(() => {
-  //   window.addEventListener("click", handleMouseEvent);
-  //   return () => {
-  //     window.removeEventListener("click", handleMouseEvent);
-  //   };
-  // }, []);
   return (
     <div className={styles.centerblockFilter}>
       <div className={styles.filterTitle}>Искать по:</div>
-      {filters.map((item)=>(
+
+      {filters.map((item) => (
+        <div
+          key={item.key}
+          className={
+            item.key === activeFilter
+              ? styles.filterActive
+              : styles.filterButton
+          }
+          onClick={() => handleFilter(item.key)}
+        >
+          {item.title}
+          
+          {activeFilter === item.key  && <DropMenu list={item.list} />}
+          {/* {activeFilter === item.key  && <div className={styles.dropMenuActiveRound}>
+        <p>{item.list.length}</p>
+      </div>} */}
+        </div>
+      ))}
+
+      {/* {filters.map((item) => (
         <FilterItem
           key={item.key}
-          id={item.key}
-          setActiveFilter={setActiveFilter}
-          activeFilter={activeFilter}
           title={item.title}
+          id={item.key}
+          isActive={activeFilter === item.key}
+          handleFilter={() => handleFilter(item.key)}
+          //setActiveFilter={setActiveFilter}
           list={item.list}
         />
-      ))}
+      ))} */}
     </div>
   );
 };
