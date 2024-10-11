@@ -1,17 +1,14 @@
 .dropMenu {
   position: absolute;
-
   width: 248px;
-  height: 305px;
+  max-height: 305px;
   box-sizing: border-box;
-
   background: #313131;
   border-radius: 12px;
-
-  margin-top: 30px;
+  margin-top: 28px;
 }
 
-.dropMenuActive {
+/* .dropMenuActive {
   position: relative;
   border: 1px solid #9a48f1;
   border-radius: 60px;
@@ -31,20 +28,17 @@
   background: #ad61ff;
   text-align: center;
   color: #fff;
-}
+} */
 
 .dropMenuList {
   width: 180px;
   height: 237px;
-
   display: flex;
-  gap: 28px;
+  gap: 20px;
   flex-direction: column;
-
   overflow-y: auto;
   overflow-x: hidden;
-
-  margin: 36px 34px;
+  margin: 34px;
 }
 
 .dropMenuList::-webkit-scrollbar {

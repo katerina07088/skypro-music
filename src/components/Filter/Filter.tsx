@@ -38,7 +38,7 @@ export const Filter: React.FC<FilterProps> = ({ tracks }) => {
       list: filterOptions,
     },
   ];
-  const handleFilter = (filter: string): void => {
+  const handleFilter = (filter: string) => {
     setActiveFilter((prev: string | null) => (prev === filter ? null : filter));
   };
 
@@ -59,9 +59,6 @@ export const Filter: React.FC<FilterProps> = ({ tracks }) => {
           {item.title}
 
           {activeFilter === item.key && <DropMenu list={item.list} />}
-          {/* {activeFilter === item.key  && <div className={styles.dropMenuActiveRound}>
-        <p>{item.list.length}</p>
-      </div>} */}
         </div>
       ))}
     </div>

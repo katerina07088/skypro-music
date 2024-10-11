@@ -6,9 +6,6 @@ type DropMenuProps = { list: string[] };
 const DropMenu: React.FC<DropMenuProps> = ({ list }) => {
   return (
     <div className={styles.dropMenu}>
-      {/* <div className={styles.dropMenuActiveRound}>
-        <p>{list.length}</p>
-      </div> */}
       <div className={styles.dropMenuList}>
         {list.map((item) => (
           <div key={item}>
