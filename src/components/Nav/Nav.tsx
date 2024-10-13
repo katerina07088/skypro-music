@@ -4,7 +4,7 @@ import styles from "./Nav.module.css";
 import React from "react";
 
 export const Nav = () => {
-  const [isDisplayOpen, setIsDisplayOpen] = React.useState<boolean>(false);
+  const [isDisplayOpen, setIsDisplayOpen] = React.useState(false);
 
   const openDisplay: React.MouseEventHandler<HTMLDivElement> = () => {
     setIsDisplayOpen(!isDisplayOpen);
