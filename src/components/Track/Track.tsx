@@ -17,7 +17,7 @@ export const OneTrack: React.FC<TrackProps> = ({ track }) => {
                 <use xlinkHref="/img/icon/sprite.svg#icon-note"></use>
               </svg>
             </div>
-            <div className="track__title-text">
+            <div className={styles.trackTitleText}>
               <a className={styles.trackTitleLink}>
                 {track.author}
                 <span className={styles.trackTitleSpan}></span>
