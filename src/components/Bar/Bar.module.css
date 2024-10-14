@@ -84,20 +84,20 @@
   align-items: center;
 }
 
-._btnIcon:hover svg {
+.btnIcon:hover svg {
   fill: transparent;
   stroke: #acacac;
   cursor: pointer;
 }
 
-._btnIcon:active svg {
+.btnIcon:active svg {
   fill: transparent;
   stroke: #ffffff;
   cursor: pointer;
 }
 
-._btnIcon:active .trackPlay__likeSvg,
-._btnIcon:active .trackPlay__dislikeSvg {
+.btnIcon:active .trackPlayLikeSvg,
+.btnIcon:active .trackPlayDislikeSvg {
   fill: #696969;
   stroke: #ffffff;
   cursor: pointer;
@@ -312,6 +312,6 @@
 .volumeProgressLine {
   width: 109px;
 }
-._btn {
+.btn {
   cursor: pointer;
 }

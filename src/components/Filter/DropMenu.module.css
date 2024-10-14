@@ -1,38 +1,16 @@
 .dropMenu {
   position: absolute;
   width: 248px;
-  max-height: 305px;
+  height: auto;
   box-sizing: border-box;
   background: #313131;
   border-radius: 12px;
   margin-top: 28px;
 }
 
-/* .dropMenuActive {
-  position: relative;
-  border: 1px solid #9a48f1;
-  border-radius: 60px;
-  color: #b672ff;
-}
-
-.dropMenuActive :hover {
-  color: #b672ff;
-}
-.dropMenuActiveRound {
-  position: absolute;
-  width: 26px;
-  height: 25.5px;
-  top: -14px;
-  right: -8px;
-  border-radius: 50px;
-  background: #ad61ff;
-  text-align: center;
-  color: #fff;
-} */
-
 .dropMenuList {
   width: 180px;
-  height: 237px;
+  max-height: 237px;
   display: flex;
   gap: 20px;
   flex-direction: column;

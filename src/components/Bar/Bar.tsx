@@ -25,14 +25,14 @@ export const Bar = () => {
                 </svg>
               </div>
               <div
-                className={classNames(styles.playerBtnRepeat, styles._btnIcon)}
+                className={classNames(styles.playerBtnRepeat, styles.btnIcon)}
               >
                 <svg className={styles.playerBtnRepeatSvg}>
                   <use xlinkHref="/img/icon/sprite.svg#icon-repeat"></use>
                 </svg>
               </div>
               <div
-                className={classNames(styles.playerBtnShuffle, styles._btnIcon)}
+                className={classNames(styles.playerBtnShuffle, styles.btnIcon)}
               >
                 <svg className={styles.playerBtnShuffleSvg}>
                   <use xlinkHref="/img/icon/sprite.svg#icon-shuffle"></use>
@@ -61,7 +61,7 @@ export const Bar = () => {
 
               <div className={styles.trackPlayLikeDis}>
                 <div
-                  className={classNames(styles.trackPlayLike, styles._btnIcon)}
+                  className={classNames(styles.trackPlayLike, styles.btnIcon)}
                 >
                   <svg className={styles.trackPlayLikeSvg}>
                     <use xlinkHref="/img/icon/sprite.svg#icon-like"></use>
@@ -70,7 +70,7 @@ export const Bar = () => {
                 <div
                   className={classNames(
                     styles.trackPlayDislike,
-                    styles._btnIcon
+                    styles.btnIcon
                   )}
                 >
                   <svg className={styles.trackPlayDislikeSvg}>
@@ -87,9 +87,9 @@ export const Bar = () => {
                   <use xlinkHref="/img/icon/sprite.svg#icon-volume"></use>
                 </svg>
               </div>
-              <div className={classNames(styles.volumeProgress, styles._btn)}>
+              <div className={classNames(styles.volumeProgress, styles.btn)}>
                 <input
-                  className={classNames(styles.volumeProgressLine, styles._btn)}
+                  className={classNames(styles.volumeProgressLine, styles.btn)}
                   type="range"
                   name="range"
                 />
