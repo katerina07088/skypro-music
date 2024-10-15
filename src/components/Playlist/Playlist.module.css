@@ -38,7 +38,7 @@
   overflow-y: auto;
 }
 
-.playlistTitle__col {
+.playlistTitleCol {
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -48,7 +48,7 @@
   text-transform: uppercase;
 }
 
-.playlistTitle__svg {
+.playlistTitleSvg {
   width: 12px;
   height: 12px;
   fill: transparent;

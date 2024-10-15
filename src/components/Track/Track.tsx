@@ -3,12 +3,16 @@ import styles from "./Track.module.css";
 
 type TrackProps = {
   track: Track;
+  setCurrentTrack: (track: Track) => void;
 };
-export const OneTrack: React.FC<TrackProps> = ({ track }) => {
+export const OneTrack: React.FC<TrackProps> = ({ track, setCurrentTrack }) => {
   let minutes: number = Math.floor(track.duration_in_seconds / 60);
   let seconds: number = track.duration_in_seconds % 60;
+  const onClickTrack = () => {
+    setCurrentTrack(track);
+  };
   return (
-    <div key={track._id}>
+    <div onClick={onClickTrack} key={track._id}>
       <div className={styles.playlistItem}>
         <div className={styles.playlistTrack}>
           <div className={styles.trackTitle}>
