@@ -1,0 +1,45 @@
+.dropMenu {
+  position: absolute;
+  width: 248px;
+  height: auto;
+  box-sizing: border-box;
+  background: #313131;
+  border-radius: 12px;
+  margin-top: 28px;
+}
+
+.dropMenuList {
+  width: 180px;
+  max-height: 237px;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin: 34px;
+}
+
+.dropMenuList::-webkit-scrollbar {
+  width: 4px;
+  background-color: #4b4949;
+  border-radius: 12px;
+  padding-right: 4px;
+}
+
+.dropMenuList::-webkit-scrollbar-thumb {
+  width: 4px;
+  background-color: #fff;
+}
+
+.dropMenuText {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  color: #ffffff;
+  text-align: left;
+}
+
+.dropMenuText:hover {
+  color: #b672ff;
+}

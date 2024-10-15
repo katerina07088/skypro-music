@@ -1,23 +1,20 @@
+"use client";
 import { Bar } from "@/components/Bar/Bar";
-import { CenterBlock } from "@/components/CenterBlock/CenterBlock";
-import { Nav } from "@/components/Nav/Nav";
-import { Sidebar } from "@/components/Sidebar/Sidebar";
 import styles from "./page.module.css";
+import { useState } from "react";
+import { Track } from "@/types/types";
+import { Main } from "@/components/Main/Main";
 
 export default function Home() {
+  const [currentTrack, setCurrentTrack] = useState<Track | null>(null);
+  console.log(currentTrack);
   return (
-    <body>
-      <div className={styles.wrapper}>
-        <div className={styles.container}>
-          <main className={styles.main}>
-            <Nav />
-            <CenterBlock />
-            <Sidebar />
-          </main>
-          <Bar />
-          <footer className={styles.footer}></footer>
-        </div>
+    <div className={styles.wrapper}>
+      <div className={styles.container}>
+        <Main setCurrentTrack={setCurrentTrack} />
+        <Bar />
+        <footer className={styles.footer}></footer>
       </div>
-    </body>
+    </div>
   );
 }
