@@ -2,50 +2,14 @@
 import { Track } from "@/types/types";
 import styles from "./Player.module.css";
 import classNames from "classnames";
-import { ChangeEvent, SyntheticEvent, useRef, useState } from "react";
+//import { ChangeEvent, SyntheticEvent, useRef, useState } from "react";
 
-type props = { currentTrack: Track };
+type props = { currentTrack: Track; onTogglePlay: () => void; isPlay: boolean, handleLoop:()=> void, isLoop: boolean };
 
-export const Player = ({ currentTrack }: props) => {
-  const [progress, setProgress] = useState({
-    currentTime: 0,
-    duration: 0,
-  });
-  const [isPlay, setIsPlay] = useState(false);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
-  const onTogglePlay = () => {
-    if (audioRef.current) {
-      if (isPlay) {
-        setIsPlay(false);
-        audioRef.current.pause();
-      } else {
-        setIsPlay(true);
-        audioRef.current.play();
-      }
-    }
-  };
+export const Player = ({ currentTrack, onTogglePlay, isPlay, handleLoop, isLoop}: props) => {
 
-  const onChangeVolume = (e: ChangeEvent<HTMLInputElement>) => {
-    const volume = Number(e.target.value) / 100;
-    if (audioRef.current) {
-      audioRef.current.volume = volume;
-    }
-  };
-
-  const onChangeTime = (e: SyntheticEvent<HTMLAudioElement>) => {
-    setProgress({
-      currentTime: e.currentTarget.currentTime,
-      duration: e.currentTarget.duration,
-    });
-  };
   return (
     <div>
-      <audio
-        onTimeUpdate={onChangeTime}
-        ref={audioRef}
-        controls
-        src={currentTrack.track_file}
-      />
       <div className={styles.barPlayer}>
         <div className={styles.playerControls}>
           <div className={styles.playerBtnPrev}>
@@ -63,10 +27,12 @@ export const Player = ({ currentTrack }: props) => {
               <use xlinkHref="/img/icon/sprite.svg#icon-next"></use>
             </svg>
           </div>
-          <div className={classNames(styles.playerBtnRepeat, styles.btnIcon)}>
-            <svg className={styles.playerBtnRepeatSvg}>
+          <div onClick={handleLoop} className={classNames(styles.playerBtnRepeat, styles.btnIcon)}>
+            {isLoop ? (<svg className={styles.playerBtnRepeatSvg}>
               <use xlinkHref="/img/icon/sprite.svg#icon-repeat"></use>
-            </svg>
+            </svg>):(<svg className={styles.playerBtnRepeatNonActiveSvg}>
+              <use xlinkHref="/img/icon/sprite.svg#icon-repeat"></use>
+            </svg>)}
           </div>
           <div className={classNames(styles.playerBtnShuffle, styles.btnIcon)}>
             <svg className={styles.playerBtnShuffleSvg}>
@@ -107,23 +73,6 @@ export const Player = ({ currentTrack }: props) => {
                 <use xlinkHref="/img/icon/sprite.svg#icon-dislike"></use>
               </svg>
             </div>
-          </div>
-        </div>
-      </div>
-      <div className={styles.barVolumeBlock}>
-        <div className={styles.volumeContent}>
-          <div className={styles.volumeImage}>
-            <svg className={styles.volumeSvg}>
-              <use xlinkHref="/img/icon/sprite.svg#icon-volume"></use>
-            </svg>
-          </div>
-          <div className={classNames(styles.volumeProgress, styles.btn)}>
-            <input
-              onChange={onChangeVolume}
-              className={classNames(styles.volumeProgressLine, styles.btn)}
-              type="range"
-              name="range"
-            />
           </div>
         </div>
       </div>
