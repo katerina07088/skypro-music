@@ -1,7 +1,6 @@
 "use client";
 
 import { Track } from "@/types/types";
-//import { Player } from "../Player/Player";
 import styles from "./Bar.module.css";
 import classNames from "classnames";
 import {
@@ -59,10 +58,53 @@ export const Bar = ({ currentTrack }: props) => {
   }
   function handleLoop() {
     if (audioRef.current) {
-      audioRef.current.loop = !isLoop;
-      setIsLoop((prevState) => !prevState);
+      if (isLoop) {
+        audioRef.current.loop = false;
+      } else {
+        audioRef.current.loop = true;
+      }
+      setIsLoop(!isLoop);
     }
   }
+
+  // const handleRepeat = () => {
+  //   setRepeat(!repeat);
+  // };
+
+  //     const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
+
+  //     const handleEnded = () => {
+  //         // Проверяем, не является ли текущий трек последним в плейлисте
+  //         if (currentTrackIndex < playlist.length - 1) {
+  //             // Переход к следующему треку
+  //             setCurrentTrackIndex(currentTrackIndex + 1);
+  //         } else {
+  //             // Или начинаем плейлист с начала
+  //             setCurrentTrackIndex(0);
+  //         }
+  //     };
+
+  //     // Устанавливаем источник аудио и обработчик события `ended` при изменении трека
+  //     useEffect(() => {
+  //         const audio = audioRef.current;
+  //         audio.src = playlist[currentTrackIndex].url;
+  //         audio.addEventListener('ended', handleEnded);
+
+  //         // Воспроизводим новый трек
+  //         audio.play();
+
+  //         return () => {
+  //             audio.removeEventListener('ended', handleEnded);
+  //         };
+  //     }, [currentTrackIndex, playlist]);
+
+  //     return (
+  //         <div>
+  //             <audio ref={audioRef} controls />
+  //             <div>Now playing: {playlist[currentTrackIndex].title}</div>
+  //         </div>
+  //     );
+  // };
 
   return (
     <div className={styles.bar}>
@@ -81,7 +123,8 @@ export const Bar = ({ currentTrack }: props) => {
           />
         </div>
         <div className={styles.barPlayerBlock}>
-          <audio className={styles.audioHtml}
+          <audio
+            className={styles.audioHtml}
             onTimeUpdate={onChangeTime}
             ref={audioRef}
             controls

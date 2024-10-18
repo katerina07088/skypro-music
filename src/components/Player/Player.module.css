@@ -107,12 +107,7 @@
     fill: transparent;
     stroke: #696969;
   }
-  .playerBtnRepeatNonActiveSvg{
-    width: 18px;
-    height: 12px;
-    fill: white;
-    stroke: #696969;
-  }
+
   .playerBtnShuffle {
     display: -webkit-box;
     display: -ms-flexbox;

@@ -7,7 +7,6 @@ import { Main } from "@/components/Main/Main";
 
 export default function Home() {
   const [currentTrack, setCurrentTrack] = useState<Track | null>(null);
-  console.log(currentTrack);
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>

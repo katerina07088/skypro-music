@@ -2,12 +2,23 @@
 import { Track } from "@/types/types";
 import styles from "./Player.module.css";
 import classNames from "classnames";
-//import { ChangeEvent, SyntheticEvent, useRef, useState } from "react";
 
-type props = { currentTrack: Track; onTogglePlay: () => void; isPlay: boolean, handleLoop:()=> void, isLoop: boolean };
 
-export const Player = ({ currentTrack, onTogglePlay, isPlay, handleLoop, isLoop}: props) => {
+type props = {
+  currentTrack: Track;
+  onTogglePlay: () => void;
+  isPlay: boolean;
+  handleLoop: () => void;
+  isLoop: boolean;
+};
 
+export const Player = ({
+  currentTrack,
+  onTogglePlay,
+  isPlay,
+  handleLoop,
+  isLoop,
+}: props) => {
   return (
     <div>
       <div className={styles.barPlayer}>
@@ -19,7 +30,13 @@ export const Player = ({ currentTrack, onTogglePlay, isPlay, handleLoop, isLoop}
           </div>
           <div onClick={onTogglePlay} className={styles.playerBtnPlay}>
             <svg className={styles.playerBtnPlaySvg}>
-              <use xlinkHref="/img/icon/sprite.svg#icon-play"></use>
+              <use
+                xlinkHref={
+                  isPlay
+                    ? "/img/icon/sprite.svg#icon-pause"
+                    : "/img/icon/sprite.svg#icon-play"
+                }
+              ></use>
             </svg>
           </div>
           <div className={styles.playerBtnNext}>
@@ -27,12 +44,19 @@ export const Player = ({ currentTrack, onTogglePlay, isPlay, handleLoop, isLoop}
               <use xlinkHref="/img/icon/sprite.svg#icon-next"></use>
             </svg>
           </div>
-          <div onClick={handleLoop} className={classNames(styles.playerBtnRepeat, styles.btnIcon)}>
-            {isLoop ? (<svg className={styles.playerBtnRepeatSvg}>
-              <use xlinkHref="/img/icon/sprite.svg#icon-repeat"></use>
-            </svg>):(<svg className={styles.playerBtnRepeatNonActiveSvg}>
-              <use xlinkHref="/img/icon/sprite.svg#icon-repeat"></use>
-            </svg>)}
+          <div
+            onClick={handleLoop}
+            className={classNames(styles.playerBtnRepeat, styles.btnIcon)}
+          >
+            <svg className={styles.playerBtnRepeatSvg}>
+              <use
+                xlinkHref={
+                  isLoop
+                    ? "/img/icon/sprite.svg#icon-repeatactive"
+                    : "/img/icon/sprite.svg#icon-repeat"
+                }
+              ></use>
+            </svg>
           </div>
           <div className={classNames(styles.playerBtnShuffle, styles.btnIcon)}>
             <svg className={styles.playerBtnShuffleSvg}>
