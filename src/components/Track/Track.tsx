@@ -1,13 +1,12 @@
 import { Track } from "@/types/types";
 import styles from "./Track.module.css";
+import { formatTime } from "@/utils/formatTime";
 
 type TrackProps = {
   track: Track;
   setCurrentTrack: (track: Track) => void;
 };
 export const OneTrack: React.FC<TrackProps> = ({ track, setCurrentTrack }) => {
-  let minutes: number = Math.floor(track.duration_in_seconds / 60);
-  let seconds: number = track.duration_in_seconds % 60;
   const onClickTrack = () => {
     setCurrentTrack(track);
   };
@@ -39,7 +38,7 @@ export const OneTrack: React.FC<TrackProps> = ({ track, setCurrentTrack }) => {
               <use xlinkHref="/img/icon/sprite.svg#icon-like"></use>
             </svg>
             <span className={styles.trackTimeText}>
-              {minutes}:{seconds.toString().padStart(2, "0")}
+              {formatTime(track.duration_in_seconds)}
             </span>
           </div>
         </div>
