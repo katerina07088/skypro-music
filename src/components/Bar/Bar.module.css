@@ -1,5 +1,6 @@
 .bar {
-  position: absolute;
+  position: fixed;
+  bottom:0;
   width: 100%;
   background: rgba(28, 28, 28, 0.5);
 }
