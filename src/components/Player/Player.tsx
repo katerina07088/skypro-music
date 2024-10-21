@@ -3,7 +3,6 @@ import { Track } from "@/types/types";
 import styles from "./Player.module.css";
 import classNames from "classnames";
 
-
 type props = {
   currentTrack: Track;
   onTogglePlay: () => void;
@@ -48,14 +47,14 @@ export const Player = ({
             onClick={handleLoop}
             className={classNames(styles.playerBtnRepeat, styles.btnIcon)}
           >
-            <svg className={styles.playerBtnRepeatSvg}>
-              <use
-                xlinkHref={
-                  isLoop
-                    ? "/img/icon/sprite.svg#icon-repeatactive"
-                    : "/img/icon/sprite.svg#icon-repeat"
-                }
-              ></use>
+            <svg
+              className={
+                isLoop
+                  ? styles.playerBtnRepeatSvgActive
+                  : styles.playerBtnRepeatSvg
+              }
+            >
+              <use xlinkHref={"/img/icon/sprite.svg#icon-repeat"}></use>
             </svg>
           </div>
           <div className={classNames(styles.playerBtnShuffle, styles.btnIcon)}>

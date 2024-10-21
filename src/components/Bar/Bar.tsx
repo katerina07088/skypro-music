@@ -3,13 +3,7 @@
 import { Track } from "@/types/types";
 import styles from "./Bar.module.css";
 import classNames from "classnames";
-import {
-  ChangeEvent,
-  RefObject,
-  SyntheticEvent,
-  useRef,
-  useState,
-} from "react";
+import { ChangeEvent, SyntheticEvent, useRef, useState } from "react";
 import ProgressBar from "../ProgressBar/ProgressBar";
 import { formatTime } from "@/utils/formatTime";
 import { Player } from "../Player/Player";
@@ -23,6 +17,7 @@ export const Bar = ({ currentTrack }: props) => {
   const [isLoop, setIsLoop] = useState<boolean>(false);
   const [isPlay, setIsPlay] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
+
   const onTogglePlay = () => {
     if (audioRef.current) {
       if (isPlay) {
@@ -42,20 +37,21 @@ export const Bar = ({ currentTrack }: props) => {
     }
   };
 
-  const onChangeTime = (e: SyntheticEvent<HTMLAudioElement>) => {
+  const onChangeTime = (e: SyntheticEvent<HTMLAudioElement, Event>) => {
     if (audioRef.current) {
       setProgress({
         currentTime: e.currentTarget.currentTime,
-        duration: e.currentTarget.duration,
+        duration: e.currentTarget.duration || 0,
       });
     }
   };
 
-  function seekAudio(event: ChangeEvent<HTMLInputElement>) {
+  const seekAudio = (e: ChangeEvent<HTMLInputElement>) => {
     if (audioRef.current) {
-      audioRef.current.currentTime = Number(event.target.value);
+      audioRef.current.currentTime = Number(e.target.value);
     }
-  }
+  };
+
   function handleLoop() {
     if (audioRef.current) {
       if (isLoop) {
@@ -110,8 +106,7 @@ export const Bar = ({ currentTrack }: props) => {
     <div className={styles.bar}>
       <div className={styles.barContent}>
         <div className={styles.barTimer}>
-          {formatTime(progress.currentTime)} /{" "}
-          {formatTime(currentTrack.duration_in_seconds)}
+          {formatTime(progress.currentTime)} /{formatTime(progress.duration)}
         </div>
 
         <div>

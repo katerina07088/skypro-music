@@ -1,7 +1,7 @@
 import styles from "./ProgressBar.module.css";
 
 type ProgressBarProps = {
-    max: number | undefined;
+    max: number;
     value: number;
     step: number;
     onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
