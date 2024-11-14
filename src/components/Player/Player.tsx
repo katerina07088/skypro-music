@@ -18,12 +18,16 @@ export const Player = ({
   handleLoop,
   isLoop,
 }: props) => {
+  const caution = () => {
+    alert("Еще не реализовано");
+  };
+
   return (
     <div>
       <div className={styles.barPlayer}>
         <div className={styles.playerControls}>
           <div className={styles.playerBtnPrev}>
-            <svg className={styles.playerBtnPrevSvg}>
+            <svg className={styles.playerBtnPrevSvg} onClick={caution}>
               <use xlinkHref="/img/icon/sprite.svg#icon-prev"></use>
             </svg>
           </div>
@@ -39,7 +43,7 @@ export const Player = ({
             </svg>
           </div>
           <div className={styles.playerBtnNext}>
-            <svg className={styles.playerBtnNextSvg}>
+            <svg className={styles.playerBtnNextSvg} onClick={caution}>
               <use xlinkHref="/img/icon/sprite.svg#icon-next"></use>
             </svg>
           </div>
