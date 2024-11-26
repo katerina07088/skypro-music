@@ -3,7 +3,13 @@
 import { Track } from "@/types/types";
 import styles from "./Bar.module.css";
 import classNames from "classnames";
-import { ChangeEvent, SyntheticEvent, useRef, useState } from "react";
+import {
+  ChangeEvent,
+  SyntheticEvent,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import ProgressBar from "../ProgressBar/ProgressBar";
 import { formatTime } from "@/utils/formatTime";
 import { Player } from "../Player/Player";
@@ -27,9 +33,15 @@ export const Bar = ({ currentTrack }: props) => {
         setIsPlay(true);
         audioRef.current.play();
       }
-    } 
+    }
   };
 
+  useEffect(() => {
+    if (audioRef.current) {
+      setIsPlay(true);
+      audioRef.current.play();
+    }
+  }, [currentTrack]);
   const onChangeVolume = (e: ChangeEvent<HTMLInputElement>) => {
     const volume = Number(e.target.value) / 100;
     if (audioRef.current) {
