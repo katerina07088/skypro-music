@@ -62,7 +62,7 @@ export const Player = ({
             </svg>
           </div>
           <div className={classNames(styles.playerBtnShuffle, styles.btnIcon)}>
-            <svg className={styles.playerBtnShuffleSvg}>
+            <svg className={styles.playerBtnShuffleSvg} onClick={caution}>
               <use xlinkHref="/img/icon/sprite.svg#icon-shuffle"></use>
             </svg>
           </div>

@@ -27,7 +27,7 @@ export const Bar = ({ currentTrack }: props) => {
         setIsPlay(true);
         audioRef.current.play();
       }
-    }
+    } 
   };
 
   const onChangeVolume = (e: ChangeEvent<HTMLInputElement>) => {
