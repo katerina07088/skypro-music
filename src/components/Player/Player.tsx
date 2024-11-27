@@ -1,38 +1,68 @@
+"use client";
+import { Track } from "@/types/types";
 import styles from "./Player.module.css";
 import classNames from "classnames";
 
+type props = {
+  currentTrack: Track;
+  onTogglePlay: () => void;
+  isPlay: boolean;
+  handleLoop: () => void;
+  isLoop: boolean;
+};
 
-export const Player = () => {
-    return (
-        <div>
-        <div className={styles.barPlayer}>
+export const Player = ({
+  currentTrack,
+  onTogglePlay,
+  isPlay,
+  handleLoop,
+  isLoop,
+}: props) => {
+  const caution = () => {
+    alert("Еще не реализовано");
+  };
+
+  return (
+    <div>
+      <div className={styles.barPlayer}>
         <div className={styles.playerControls}>
           <div className={styles.playerBtnPrev}>
-            <svg className={styles.playerBtnPrevSvg}>
+            <svg className={styles.playerBtnPrevSvg} onClick={caution}>
               <use xlinkHref="/img/icon/sprite.svg#icon-prev"></use>
             </svg>
           </div>
-          <div className={styles.playerBtnPlay}>
+          <div onClick={onTogglePlay} className={styles.playerBtnPlay}>
             <svg className={styles.playerBtnPlaySvg}>
-              <use xlinkHref="/img/icon/sprite.svg#icon-play"></use>
+              <use
+                xlinkHref={
+                  isPlay
+                    ? "/img/icon/sprite.svg#icon-pause"
+                    : "/img/icon/sprite.svg#icon-play"
+                }
+              ></use>
             </svg>
           </div>
           <div className={styles.playerBtnNext}>
-            <svg className={styles.playerBtnNextSvg}>
+            <svg className={styles.playerBtnNextSvg} onClick={caution}>
               <use xlinkHref="/img/icon/sprite.svg#icon-next"></use>
             </svg>
           </div>
           <div
+            onClick={handleLoop}
             className={classNames(styles.playerBtnRepeat, styles.btnIcon)}
           >
-            <svg className={styles.playerBtnRepeatSvg}>
-              <use xlinkHref="/img/icon/sprite.svg#icon-repeat"></use>
+            <svg
+              className={
+                isLoop
+                  ? styles.playerBtnRepeatSvgActive
+                  : styles.playerBtnRepeatSvg
+              }
+            >
+              <use xlinkHref={"/img/icon/sprite.svg#icon-repeat"}></use>
             </svg>
           </div>
-          <div
-            className={classNames(styles.playerBtnShuffle, styles.btnIcon)}
-          >
-            <svg className={styles.playerBtnShuffleSvg}>
+          <div className={classNames(styles.playerBtnShuffle, styles.btnIcon)}>
+            <svg className={styles.playerBtnShuffleSvg} onClick={caution}>
               <use xlinkHref="/img/icon/sprite.svg#icon-shuffle"></use>
             </svg>
           </div>
@@ -47,29 +77,24 @@ export const Player = () => {
             </div>
             <div className={styles.trackPlayAuthor}>
               <a className={styles.trackPlayAuthorLink} href="http://">
-                Ты та...
+                {currentTrack.name}
               </a>
             </div>
             <div className={styles.trackPlayAlbum}>
               <a className={styles.trackPlayAlbumLink} href="http://">
-                Баста
+                {currentTrack.author}
               </a>
             </div>
           </div>
 
           <div className={styles.trackPlayLikeDis}>
-            <div
-              className={classNames(styles.trackPlayLike, styles.btnIcon)}
-            >
+            <div className={classNames(styles.trackPlayLike, styles.btnIcon)}>
               <svg className={styles.trackPlayLikeSvg}>
                 <use xlinkHref="/img/icon/sprite.svg#icon-like"></use>
               </svg>
             </div>
             <div
-              className={classNames(
-                styles.trackPlayDislike,
-                styles.btnIcon
-              )}
+              className={classNames(styles.trackPlayDislike, styles.btnIcon)}
             >
               <svg className={styles.trackPlayDislikeSvg}>
                 <use xlinkHref="/img/icon/sprite.svg#icon-dislike"></use>
@@ -78,22 +103,6 @@ export const Player = () => {
           </div>
         </div>
       </div>
-      <div className={styles.barVolumeBlock}>
-        <div className={styles.volumeContent}>
-          <div className={styles.volumeImage}>
-            <svg className={styles.volumeSvg}>
-              <use xlinkHref="/img/icon/sprite.svg#icon-volume"></use>
-            </svg>
-          </div>
-          <div className={classNames(styles.volumeProgress, styles.btn)}>
-            <input
-              className={classNames(styles.volumeProgressLine, styles.btn)}
-              type="range"
-              name="range"
-            />
-          </div>
-        </div>
-      </div>
-      </div>
-    )
-}
+    </div>
+  );
+};
