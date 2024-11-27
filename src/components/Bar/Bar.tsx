@@ -13,16 +13,40 @@ import {
 import ProgressBar from "../ProgressBar/ProgressBar";
 import { formatTime } from "@/utils/formatTime";
 import { Player } from "../Player/Player";
+import { trackActions, useAppSelector } from "@/store/store";
+import { useDispatch } from "react-redux";
 
 type props = { currentTrack: Track };
+
 export const Bar = ({ currentTrack }: props) => {
-  const [progress, setProgress] = useState({
-    currentTime: 0,
-    duration: 0,
-  });
-  const [isLoop, setIsLoop] = useState<boolean>(false);
-  const [isPlay, setIsPlay] = useState(false);
+  const [progress, setProgress] = useState({ currentTime: 0, duration: 0 });
+
+  useEffect(() => {
+    if (
+      audioRef.current &&
+      progress.currentTime > 0 &&
+      progress.duration > 0 &&
+      progress.currentTime >= progress.duration
+    ) {
+      dispatch(trackActions.setNextTrack());
+    }
+  }, [progress.currentTime]);
+
   const audioRef = useRef<HTMLAudioElement>(null);
+  const isLoop = useAppSelector((state) => state.trackSlice.isLoop);
+  const isPlay = useAppSelector((state) => state.trackSlice.isPlay);
+
+  const dispatch = useDispatch();
+
+  const setIsPlay = (value: boolean) => dispatch(trackActions.setIsPlay(value));
+  const setIsLoop = (value: boolean) => dispatch(trackActions.setIsLoop(value));
+
+  useEffect(() => {
+    if (audioRef.current) {
+      setIsPlay(true);
+      audioRef.current.play();
+    }
+  }, [currentTrack]);
 
   const onTogglePlay = () => {
     if (audioRef.current) {
@@ -36,12 +60,6 @@ export const Bar = ({ currentTrack }: props) => {
     }
   };
 
-  useEffect(() => {
-    if (audioRef.current) {
-      setIsPlay(true);
-      audioRef.current.play();
-    }
-  }, [currentTrack]);
   const onChangeVolume = (e: ChangeEvent<HTMLInputElement>) => {
     const volume = Number(e.target.value) / 100;
     if (audioRef.current) {
@@ -74,45 +92,6 @@ export const Bar = ({ currentTrack }: props) => {
       setIsLoop(!isLoop);
     }
   }
-
-  // const handleRepeat = () => {
-  //   setRepeat(!repeat);
-  // };
-
-  //     const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
-
-  //     const handleEnded = () => {
-  //         // Проверяем, не является ли текущий трек последним в плейлисте
-  //         if (currentTrackIndex < playlist.length - 1) {
-  //             // Переход к следующему треку
-  //             setCurrentTrackIndex(currentTrackIndex + 1);
-  //         } else {
-  //             // Или начинаем плейлист с начала
-  //             setCurrentTrackIndex(0);
-  //         }
-  //     };
-
-  //     // Устанавливаем источник аудио и обработчик события `ended` при изменении трека
-  //     useEffect(() => {
-  //         const audio = audioRef.current;
-  //         audio.src = playlist[currentTrackIndex].url;
-  //         audio.addEventListener('ended', handleEnded);
-
-  //         // Воспроизводим новый трек
-  //         audio.play();
-
-  //         return () => {
-  //             audio.removeEventListener('ended', handleEnded);
-  //         };
-  //     }, [currentTrackIndex, playlist]);
-
-  //     return (
-  //         <div>
-  //             <audio ref={audioRef} controls />
-  //             <div>Now playing: {playlist[currentTrackIndex].title}</div>
-  //         </div>
-  //     );
-  // };
 
   return (
     <div className={styles.bar}>

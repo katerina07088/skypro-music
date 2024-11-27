@@ -1,20 +1,20 @@
 "use client";
+
 import { Bar } from "@/components/Bar/Bar";
 import styles from "./page.module.css";
-import { useState } from "react";
-import { Track } from "@/types/types";
 import { Main } from "@/components/Main/Main";
-//import TrackProvider from "@/context/TrackContext";
+import { useAppSelector } from "@/store/store";
 
 export default function Home() {
-  const [currentTrack, setCurrentTrack] = useState<Track | null>(null);
+  const currentTrack = useAppSelector((state) => state.trackSlice.track);
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
-     
-        <Main setCurrentTrack={setCurrentTrack} />
+        <Main />
+
         {currentTrack && <Bar currentTrack={currentTrack} />}
-     
+
         <footer className={styles.footer}></footer>
       </div>
     </div>

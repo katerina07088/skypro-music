@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import styles from "./Sidebar.module.css";
+
 export const Sidebar = () => {
   return (
     <div className={styles.mainSidebar}>

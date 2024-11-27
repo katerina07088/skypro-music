@@ -6,18 +6,18 @@ import { Search } from "../Search/Search";
 import styles from "./CenterBlock.module.css";
 import { getTracks } from "@/api/api";
 import { Track } from "@/types/types";
-type props={
-  setCurrentTrack: (track: Track) => void
-}
-export const CenterBlock = ({setCurrentTrack}: props) => {
+import { useDispatch, useSelector } from "react-redux";
+import { trackActions, useAppSelector } from "@/store/store";
+
+export const CenterBlock = () => {
   const [err, setErr] = useState<string | null>(null);
-  const [tracks, setTracks] = useState<Track[]>([]);
+  const tracks = useAppSelector((state) => state.trackSlice.tracks);
 
   useEffect(() => {
     const getData = async () => {
       try {
         const data = await getTracks();
-        setTracks(data);
+        dispatch(trackActions.setTracks(data));
       } catch (error: unknown) {
         if (error instanceof Error) {
           setErr(error.message);
@@ -25,14 +25,19 @@ export const CenterBlock = ({setCurrentTrack}: props) => {
       }
     };
     getData();
-  }, [tracks]);
+  }, []);
+
+  const dispatch = useDispatch();
 
   return (
     <div className={styles.mainCenterblock}>
       <Search />
       <h2 className={styles.centerblockH2}>Треки</h2>
       <Filter tracks={tracks} />
-      <Playlist setCurrentTrack = {setCurrentTrack} tracks={tracks} />
+      <Playlist
+        tracks={tracks}
+        setCurrentTrack={(track) => dispatch(trackActions.setTrack(track))}
+      />
       <p>{err}</p>
     </div>
   );
