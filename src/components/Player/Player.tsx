@@ -2,8 +2,10 @@
 import { Track } from "@/types/types";
 import styles from "./Player.module.css";
 import classNames from "classnames";
+import { useDispatch } from "react-redux";
+import { trackActions, useAppSelector } from "@/store/store";
 
-type props = {
+type Props = {
   currentTrack: Track;
   onTogglePlay: () => void;
   isPlay: boolean;
@@ -17,17 +19,21 @@ export const Player = ({
   isPlay,
   handleLoop,
   isLoop,
-}: props) => {
-  const caution = () => {
-    alert("Еще не реализовано");
-  };
+}: Props) => {
+  const dispatch = useDispatch();
+  const shuffled = useAppSelector((state) => state.trackSlice.shuffled);
 
   return (
     <div>
       <div className={styles.barPlayer}>
         <div className={styles.playerControls}>
           <div className={styles.playerBtnPrev}>
-            <svg className={styles.playerBtnPrevSvg} onClick={caution}>
+            <svg
+              className={styles.playerBtnPrevSvg}
+              onClick={() => {
+                dispatch(trackActions.setPrevTrack());
+              }}
+            >
               <use xlinkHref="/img/icon/sprite.svg#icon-prev"></use>
             </svg>
           </div>
@@ -43,7 +49,12 @@ export const Player = ({
             </svg>
           </div>
           <div className={styles.playerBtnNext}>
-            <svg className={styles.playerBtnNextSvg} onClick={caution}>
+            <svg
+              className={styles.playerBtnNextSvg}
+              onClick={() => {
+                dispatch(trackActions.setNextTrack());
+              }}
+            >
               <use xlinkHref="/img/icon/sprite.svg#icon-next"></use>
             </svg>
           </div>
@@ -62,7 +73,13 @@ export const Player = ({
             </svg>
           </div>
           <div className={classNames(styles.playerBtnShuffle, styles.btnIcon)}>
-            <svg className={styles.playerBtnShuffleSvg} onClick={caution}>
+            <svg
+              className={styles.playerBtnShuffleSvg}
+              data-selected={shuffled}
+              onClick={() => {
+                dispatch(trackActions.shuffle());
+              }}
+            >
               <use xlinkHref="/img/icon/sprite.svg#icon-shuffle"></use>
             </svg>
           </div>

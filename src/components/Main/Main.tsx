@@ -1,16 +1,15 @@
-import { Track } from "@/types/types";
+"use client";
+
 import { CenterBlock } from "../CenterBlock/CenterBlock";
 import { Nav } from "../Nav/Nav";
 import { Sidebar } from "../Sidebar/Sidebar";
 import styles from "./Main.module.css";
-type props = {
-  setCurrentTrack: (track: Track) => void;
-};
-export const Main = ({ setCurrentTrack }: props) => {
+
+export const Main = () => {
   return (
     <main className={styles.main}>
       <Nav />
-      <CenterBlock setCurrentTrack={setCurrentTrack} />
+      <CenterBlock />
       <Sidebar />
     </main>
   );

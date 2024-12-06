@@ -129,6 +129,11 @@
   stroke: #696969;
 }
 
+.playerBtnShuffleSvg[data-selected="true"] {
+  fill: #fff;
+  stroke: #fff;
+}
+
 .playerTrackPlay {
   display: -webkit-box;
   display: -ms-flexbox;

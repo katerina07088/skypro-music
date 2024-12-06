@@ -5,20 +5,36 @@ import { formatTime } from "@/utils/formatTime";
 type TrackProps = {
   track: Track;
   setCurrentTrack: (track: Track) => void;
+  active: boolean;
+  pause: boolean;
 };
-export const OneTrack: React.FC<TrackProps> = ({ track, setCurrentTrack }) => {
+
+export const OneTrack: React.FC<TrackProps> = ({
+  track,
+  setCurrentTrack,
+  active,
+  pause,
+}) => {
   const onClickTrack = () => {
     setCurrentTrack(track);
   };
+
   return (
     <div onClick={onClickTrack} key={track._id}>
       <div className={styles.playlistItem}>
         <div className={styles.playlistTrack}>
           <div className={styles.trackTitle}>
             <div className={styles.trackTitleImage}>
-              <svg className={styles.trackTitleSvg}>
-                <use xlinkHref="/img/icon/sprite.svg#icon-note"></use>
-              </svg>
+              {active ? (
+                <div
+                  className={styles.indicator}
+                  data-pause={pause ? "false" : "true"}
+                ></div>
+              ) : (
+                <svg className={styles.trackTitleSvg}>
+                  <use xlinkHref="/img/icon/sprite.svg#icon-note"></use>
+                </svg>
+              )}
             </div>
             <div className={styles.trackTitleText}>
               <a className={styles.trackTitleLink}>
