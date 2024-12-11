@@ -1,8 +1,6 @@
 "use client";
 
-import styles from "../page.module.css";
-import "../../template/css/signin.css";
-
+import styles from "./signInPage.module.css";
 import Image from "next/image";
 import { useState } from "react";
 import { apiProvider } from "@/api/api";
@@ -31,22 +29,24 @@ export default function SignInPage() {
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.container}>
-        <div className="modal__block">
+      <div className={styles.containerEnter}>
+        <div className={styles.modalBlock}>
           {/* Todo: добавить form */}
-          <div className="modal__form-login">
+          <div className={styles.modalFormLogin}>
             <a href="../">
-              <div className="modal__logo">
+              <div className={styles.modalLogo}>
                 <Image
                   width={200}
                   height={100}
                   src="/logo_modal.png"
                   alt="logo"
+                  className={styles.modalLogo}
+                  /* проверить видит ли img */
                 />
               </div>
             </a>
             <input
-              className="modal__input login"
+              className={styles.modalInput}
               type="text"
               name="login"
               placeholder="Почта"
@@ -54,7 +54,7 @@ export default function SignInPage() {
               onChange={(e) => setEmail(e.target.value)}
             />
             <input
-              className="modal__input password"
+              className={styles.modalInput}
               type="password"
               name="password"
               value={password}
@@ -62,7 +62,7 @@ export default function SignInPage() {
               onChange={(e) => setPassword(e.target.value)}
             />
             <button
-              className="modal__btn-enter"
+              className={styles.modalBtnEnter}
               onClick={async (e) => {
                 await apiProvider.login(email, password);
                 router.push("/");
@@ -71,7 +71,7 @@ export default function SignInPage() {
               Войти
             </button>
           </div>
-          <button className="modal__btn-signup">Зарегистрироваться</button>
+          <button className={styles.modalBtnSignup}>Зарегистрироваться</button>
         </div>
       </div>
     </div>
