@@ -32,12 +32,12 @@ export const apiProvider = {
   login: login,
 };
 
-const printHello = () => {
-  console.log("Hello");
-};
+// const printHello = () => {
+//   console.log("Hello");
+// };
 
-const user = {
-  printHello: printHello,
-};
+// const user = {
+//   printHello: printHello,
+// };
 
-user.printHello();
+// user.printHello();

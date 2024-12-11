@@ -10,17 +10,17 @@ import { useRouter } from "next/navigation";
 
 // Компонент - функция, которая возвращает JSX-разметку
 // JSX - javascript syntax extension (HTML + JS)
-function Test() {
-  const [count, setCount] = useState(0);
+// function Test() {
+//   const [count, setCount] = useState(0);
 
-  console.log("Компонент Test перерисовался");
+//   console.log("Компонент Test перерисовался");
 
-  return (
-    <div>
-      <button onClick={() => setCount(count + 1)}>count = {count}</button>
-    </div>
-  );
-}
+//   return (
+//     <div>
+//       <button onClick={() => setCount(count + 1)}>count = {count}</button>
+//     </div>
+//   );
+// }
 
 export default function SignInPage() {
   const router = useRouter();
