@@ -6,20 +6,6 @@ import Image from "next/image";
 //import { apiProvider } from "@/api/api";
 import { useRouter } from "next/navigation";
 
-// Компонент - функция, которая возвращает JSX-разметку
-// JSX - javascript syntax extension (HTML + JS)
-// function Test() {
-//   const [count, setCount] = useState(0);
-
-//   console.log("Компонент Test перерисовался");
-
-//   return (
-//     <div>
-//       <button onClick={() => setCount(count + 1)}>count = {count}</button>
-//     </div>
-//   );
-// }
-
 export default function SignUnPage() {
   const router = useRouter();
 
