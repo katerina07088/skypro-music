@@ -1,6 +1,6 @@
 "use client";
 
-import { Track } from "@/types/types";
+import { Track } from "@/types/track";
 import styles from "./Bar.module.css";
 import classNames from "classnames";
 import {

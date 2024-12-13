@@ -1,12 +1,13 @@
 "use client";
 
+import classNames from "classnames";
 import styles from "./signUpPage.module.css";
 import Image from "next/image";
 //import { useState } from "react";
 //import { apiProvider } from "@/api/api";
 import { useRouter } from "next/navigation";
 
-export default function SignUnPage() {
+export default function SignUpPage() {
   const router = useRouter();
 
   return (
@@ -25,7 +26,8 @@ export default function SignUnPage() {
               />
             </div>
             <input
-              className={styles.modalInput} //login
+              className={classNames(styles.modalInput, styles.login)} //login
+              // style={{ marginBottom: 10 }}
               type="text"
               name="login"
               placeholder="Почта"
@@ -44,6 +46,9 @@ export default function SignUnPage() {
             />
             <button className={styles.modalBtnSignupEnt}>
               Зарегистрироваться
+            </button>
+            <button onClick={() => router.push("/signin")}>
+              Уже есть аккаунт ?
             </button>
           </form>
         </div>

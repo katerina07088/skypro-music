@@ -1,9 +1,8 @@
-import { Track } from "@/types/types";
+import { Track } from "@/types/track";
 import styles from "./Filter.module.css";
 import React, { useEffect } from "react";
 import DropMenu from "./DropMenu";
 import { getUniqueValues } from "@/utils/uniqueValues";
-
 
 type FilterProps = {
   tracks: Track[];

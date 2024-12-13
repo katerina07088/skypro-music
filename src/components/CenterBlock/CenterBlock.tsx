@@ -4,10 +4,10 @@ import { Filter } from "../Filter/Filter";
 import { Playlist } from "../Playlist/Playlist";
 import { Search } from "../Search/Search";
 import styles from "./CenterBlock.module.css";
-import { getTracks } from "@/api/api";
-import { Track } from "@/types/types";
+
 import { useDispatch, useSelector } from "react-redux";
 import { trackActions, useAppSelector } from "@/store/store";
+import { apiProvider } from "@/api/api";
 
 export const CenterBlock = () => {
   const [err, setErr] = useState<string | null>(null);
@@ -16,7 +16,7 @@ export const CenterBlock = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const data = await getTracks();
+        const data = await apiProvider.getTracks();
         dispatch(trackActions.setTracks(data));
       } catch (error: unknown) {
         if (error instanceof Error) {

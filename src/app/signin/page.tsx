@@ -5,6 +5,8 @@ import Image from "next/image";
 import { useState } from "react";
 import { apiProvider } from "@/api/api";
 import { useRouter } from "next/navigation";
+import { useDispatch } from "react-redux";
+import { userSlice } from "@/store/user-slice";
 
 // Компонент - функция, которая возвращает JSX-разметку
 // JSX - javascript syntax extension (HTML + JS)
@@ -25,6 +27,22 @@ export default function SignInPage() {
 
   const [email, setEmail] = useState("test@test.ru");
   const [password, setPassword] = useState("test@test.ru");
+  const [error, setError] = useState("");
+
+  const dispatch = useDispatch();
+
+  async function onSigninClick() {
+    try {
+      const user = await apiProvider.login(email, password);
+      dispatch(userSlice.actions.setUser(user));
+      const tokens = await apiProvider.getTokens(email, password);
+      dispatch(userSlice.actions.setTokens(tokens));
+
+      router.push("/");
+    } catch (error) {
+      setError((error as Error).message);
+    }
+  }
 
   return (
     <div className={styles.wrapper}>
@@ -60,17 +78,14 @@ export default function SignInPage() {
               placeholder="Пароль"
               onChange={(e) => setPassword(e.target.value)}
             />
-            <button
-              className={styles.modalBtnEnter}
-              onClick={async (e) => {
-                await apiProvider.login(email, password);
-                router.push("/");
-              }}
-            >
+            {error && <p style={{ color: "red" }}>{error}</p>}
+            <button className={styles.modalBtnEnter} onClick={onSigninClick}>
               Войти
             </button>
+            <button onClick={() => router.push("/signup")}>
+              Зарегистрироваться
+            </button>
           </div>
-          <button className={styles.modalBtnSignup}>Зарегистрироваться</button>
         </div>
       </div>
     </div>

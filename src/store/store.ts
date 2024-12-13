@@ -1,7 +1,8 @@
 "use client";
-import { Track } from "@/types/types";
+import { Track } from "@/types/track";
 import { configureStore, createSlice } from "@reduxjs/toolkit";
 import { TypedUseSelectorHook, useSelector } from "react-redux";
+import { userSlice } from "./user-slice";
 
 type State = {
   tracks: Track[];
@@ -108,6 +109,7 @@ export const trackActions = trackSlice.actions;
 export const store = configureStore({
   reducer: {
     trackSlice: trackSlice.reducer,
+    userSlice: userSlice.reducer,
   },
 });
 

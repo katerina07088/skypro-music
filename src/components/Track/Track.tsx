@@ -1,4 +1,4 @@
-import { Track } from "@/types/types";
+import { Track } from "@/types/track";
 import styles from "./Track.module.css";
 import { formatTime } from "@/utils/formatTime";
 
