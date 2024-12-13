@@ -14,18 +14,16 @@ export default function SignUnPage() {
       <div className={styles.containerSignup}>
         <div className={styles.modalBlock}>
           <form className={styles.modalFormLogin}>
-            <a href="../">
-              <div className={styles.modalLogo}>
-                <Image
-                  width={200}
-                  height={100}
-                  src="/logo_modal.png"
-                  alt="logo"
-                  className={styles.modalLogo}
-                  /* проверить видит ли img */
-                />
-              </div>
-            </a>
+            <div className={styles.modalLogo}>
+              <Image
+                width={200}
+                height={100}
+                src="/logo_modal.png"
+                alt="logo"
+                className={styles.modalLogo}
+                /* проверить видит ли img */
+              />
+            </div>
             <input
               className={styles.modalInput} //login
               type="text"
@@ -45,7 +43,7 @@ export default function SignUnPage() {
               placeholder="Повторите пароль"
             />
             <button className={styles.modalBtnSignupEnt}>
-              <a href="../index.html">Зарегистрироваться</a>
+              Зарегистрироваться
             </button>
           </form>
         </div>

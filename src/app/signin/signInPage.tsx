@@ -25,7 +25,6 @@ export default function SignInPage() {
 
   const [email, setEmail] = useState("test@test.ru");
   const [password, setPassword] = useState("test@test.ru");
-  console.log("Компонент SignInPage перерисовался");
 
   return (
     <div className={styles.wrapper}>
